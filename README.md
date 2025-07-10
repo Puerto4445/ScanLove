@@ -1,6 +1,6 @@
-# LOVEHOST
+# SCANLOVE
 
-LoveHost es una herramienta de línea de comandos que permite escanear una red y detectar hosts activos. Ahora podras ver cuantos sistemas estan conectados a tu red.
+ScanLove es una herramienta de línea de comandos que permite escanear una red y detectar hosts activos. Ahora podras ver cuantos sistemas estan conectados a tu red.
 
 ## Características
 
@@ -24,8 +24,7 @@ LoveHost es una herramienta de línea de comandos que permite escanear una red y
 2. Instalar los requisitos:
 - pip install -r requirements.txt
 
-![LoveHost1 3_rate](https://github.com/user-attachments/assets/cb985755-6a59-45dc-a8c0-deb20975e5e0)
-
+![scanlove](https://github.com/user-attachments/assets/836142fc-ee7c-47be-892b-bf340351edcc)
 
 ## Autor
 -puerto4444
