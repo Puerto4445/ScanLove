@@ -138,12 +138,6 @@ def guardar_resultados_txt(resultados, nombre_archivo='reporte.txt'):
         print(colored(f"\n[!] Error al guardar el archivo de texto: {e}", "red"))  
 
 def main():  
-    """  
-    La función principal del programa.  
-
-    Returns:  
-        None  
-    """  
     printed()  
     target, generar_txt = Arg_parse()    
     targets = Valid_target(target)  
