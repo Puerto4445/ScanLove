@@ -9,15 +9,6 @@ from pyfiglet import Figlet
 from datetime import datetime  
 
 def print_figlet(text):  
-    """  
-    Imprime en la pantalla el texto proporcionado con un diseño ASCII.  
-
-    Args:  
-        text (str): El texto a imprimir con el diseño ASCII.  
-
-    Returns:  
-        None  
-    """  
     figlet = Figlet(font="rozzo")    
     ascii_art = figlet.renderText(text)  
     try:  
@@ -26,13 +17,7 @@ def print_figlet(text):
     except FileNotFoundError:    
         print(ascii_art)  
 
-def printed():  
-    """  
-    Imprime el banner y la información inicial del programa.  
-
-    Returns:  
-        None  
-    """  
+def printed():   
     print_figlet("SCANLOVE")  
     print("@puerto4444")  
     print("-" * 30)  
