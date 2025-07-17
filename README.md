@@ -1,4 +1,4 @@
-# SCANLOVE
+# SCANLOVE 🔍
 
 ScanLove es una herramienta de reconocimiento esencial para pentesters y entusiastas de CTF. Diseñada para la fase inicial de enumeración, permite descubrir rápidamente hosts activos en redes objetivo, proporcionando una base sólida para posteriores vectores de ataque. Con su enfoque minimalista y eficiente, ScanLove se integra perfectamente en el arsenal de cualquier hacker ético.
 
@@ -9,8 +9,7 @@ ScanLove es una herramienta de reconocimiento esencial para pentesters y entusia
 - Opciones de configuración personalizables
 - Soporte multiplataforma Linux.
 - Generación de reporte de texto con los hosts activos encontrados.
-- Manejo de rate por segundo
-
+  
 ## Requisitos
 
 - Python 3.x
