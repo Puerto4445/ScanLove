@@ -16,7 +16,7 @@ ScanLove es una herramienta de línea de comandos que permite escanear una red y
 - Python 3.x
 - Privilegios de root (para escanear redes completas)
 
-## Instalación
+## Instalación 🧰
 
 1. Clona el repositorio de GitHub:
 - git clone https://github.com/Puerto445/LoveHost.git
