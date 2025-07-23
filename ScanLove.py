@@ -8,7 +8,16 @@ from concurrent.futures import ThreadPoolExecutor
 from pyfiglet import Figlet  
 from datetime import datetime  
 
-def print_figlet(text):  
+def Show_banner(text):  
+    """  
+    Imprime en la pantalla el texto proporcionado con un diseño ASCII.  
+
+    Args:  
+        text (str): El texto a imprimir con el diseño ASCII.  
+
+    Returns:  
+        None  
+    """  
     figlet = Figlet(font="rozzo")    
     ascii_art = figlet.renderText(text)  
     try:  
@@ -17,12 +26,18 @@ def print_figlet(text):
     except FileNotFoundError:    
         print(ascii_art)  
 
-def printed():   
-    print_figlet("SCANLOVE")  
+def Banner():  
+    """  
+    Imprime el banner y la información inicial del programa.  
+
+    Returns:  
+        None  
+    """  
+    Show_banner("SCANLOVE")  
     print("@puerto4444")  
     print("-" * 30)  
 
-def close_program(sig, frame):  
+def Close(sig, frame):  
     """  
     Maneja la interrupción del programa al presionar Ctrl+C.  
 
@@ -36,9 +51,9 @@ def close_program(sig, frame):
     print(colored(f"\n☕ Exit...", "red"))  
     sys.exit(1)  
 
-signal.signal(signal.SIGINT, close_program)  
+signal.signal(signal.SIGINT, Close)  
 
-def Arg_parse():  
+def Arguments():  
     """  
     Parsea los argumentos de la línea de comando.  
 
@@ -91,7 +106,7 @@ def Valid_target(target):
             print(colored(f"\n[!] Octeto final no es un número: {target}\n", "red"))  
             return []  
 
-def descovery_host(target):  
+def Discovery_host(target):  
     """  
     Envía un ping a la dirección IP proporcionada para verificar si el host está activo.  
 
@@ -110,7 +125,7 @@ def descovery_host(target):
         pass  
     return None  
 
-def guardar_resultados_txt(resultados, nombre_archivo='reporte.txt'):  
+def Save_results(results, name_archive='reporte.txt'):  
     """  
     Guarda los resultados del escaneo en un archivo de texto.  
 
@@ -122,38 +137,36 @@ def guardar_resultados_txt(resultados, nombre_archivo='reporte.txt'):
         None  
     """  
     try:  
-        with open(nombre_archivo, 'w') as f:  
+        with open(name_archive, 'w') as f:  
             f.write("=== Reporte de Escaneo de Red ===\n")  
             f.write(f"Fecha y hora: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")  
             f.write("=" * 35 + "\n\n")  
             
-            if resultados:  
+            if results:  
                 f.write("Hosts Activos Encontrados:\n")  
-                for host in resultados:  
+                for host in results:  
                     f.write(f"- {host} UP\n")  
             else:  
                 f.write("No se encontraron hosts activos.\n")  
-        print(colored(f"\n[+] Reporte de texto generado: {nombre_archivo}", "yellow"))  
+        print(colored(f"\n[+] Reporte de texto generado: {name_archive}", "yellow"))  
     except Exception as e:  
         print(colored(f"\n[!] Error al guardar el archivo de texto: {e}", "red"))  
 
 def main():  
-    printed()  
-    target, generar_txt = Arg_parse()    
+    Banner()  
+    target, generar_txt = Arguments()    
     targets = Valid_target(target)  
-    
     if not targets:  
         print(colored("[!] No hay direcciones IP válidas para escanear.", "red"))  
         sys.exit(1)  
     
-    resultados = []  
+    results = []  
     with ThreadPoolExecutor(max_workers=100) as executor:  
-        for resultado in executor.map(descovery_host, targets):  
-            if resultado:  
-                resultados.append(resultado)  
-    
+        for result in executor.map(Discovery_host, targets):  
+            if result:  
+                results.append(results)  
     if generar_txt:  
-        guardar_resultados_txt(resultados, generar_txt)  
+        Save_results(results, generar_txt)
 
 if __name__ == "__main__":  
     main()
